@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <tittle>html form example</tittle>
+        <script>
+            function validateform(){
+                var name=document.getElementById("name").values;
+                var email=document.getElementById("email").values;
+                var message=document.getElementById("message").values;
+                // validate name
+                if (name.trim()===""){
+                    alert("name must be not empty");
+                    return false;
+                }
+                //validate email
+                var emailpattern=/^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+\.[a-zA-Z]{2,4}$/;
+                if (!emailpattern.test(email)){
+                alert("please enter a valid emailaddress");
+                return false;
+                }    
+                //validate message
+                if(message.trim()===""){
+                alert("message must not be empty");
+                return false;
+            }
+        //if all validation pass,the form will be submited
+        return true;
+    } 
+        </script>
+    </head>
+    <body>
+        <h1>contact us</h1>
+        <fprm action="#" method="post" onsubmit="return validateform()">
+        Name:
+        <input type="text" id="name" name="name" required><br><br>
+        email:
+        <input type="email" id="email" name="email" required><br><br>
+        message:
+        <textarea id="message" name="message" rows="4" cols="50" required></textarea><br><br>
+        <!-- ,,,(other form fields) -->
+        <input  type="submit" value="submit">
+        <input type="reset" value="reset"> 
+    </fprm>
+    </body>
+</html>
